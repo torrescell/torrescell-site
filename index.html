@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TORRES CELL | iPhones</title>
+<style>
+:root{--bg:#0c0d12;--panel:#151720;--muted:#a5a8b5;--line:#282b38;--accent:#8b5cf6;--cyan:#22d3ee}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f7f7fb;font:15px/1.5 Inter,system-ui,Arial}
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#0c0d12ee;backdrop-filter:blur(12px);z-index:5}
+.wrap{max-width:1160px;margin:auto;padding:0 22px}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:25px;font-weight:900;letter-spacing:1px}.brand span{background:linear-gradient(90deg,#22d3ee,#a78bfa,#f472b6);background-clip:text;color:transparent}
+nav{display:flex;gap:24px;color:var(--muted)}a{color:inherit;text-decoration:none}.cart{border:1px solid var(--line);background:var(--panel);color:white;border-radius:12px;padding:10px 15px;cursor:pointer}
+.hero{padding:66px 0 48px;background:radial-gradient(ellipse at 80% 20%,#42217a55,transparent 45%),radial-gradient(ellipse at 10% 80%,#0e749055,transparent 40%)}
+.eyebrow{color:var(--cyan);font-weight:700;letter-spacing:2px;font-size:12px}.hero h1{font-size:clamp(38px,6vw,66px);line-height:1.02;max-width:700px;margin:15px 0}.hero p{color:var(--muted);max-width:560px;font-size:17px}
+.hero-actions{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:13px 19px;font-weight:750;cursor:pointer;background:linear-gradient(100deg,var(--accent),#5865e8);color:white}.btn.secondary{background:#202331;border:1px solid var(--line)}
+main{padding:38px 0 70px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;flex-wrap:wrap}.section-head h2{font-size:28px;margin:0}.muted{color:var(--muted)}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.controls input,.controls select{background:var(--panel);border:1px solid var(--line);color:white;padding:12px 14px;border-radius:11px;min-width:190px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#7160bc}
+.phone-art{height:185px;display:grid;place-items:center;background:radial-gradient(circle at 50% 60%,#48416c,transparent 65%),linear-gradient(140deg,#1c2030,#11131b);position:relative}
+.phone{height:135px;width:76px;border:4px solid #555b6d;border-radius:19px;background:linear-gradient(145deg,#27364b,#090b10);box-shadow:10px 12px 25px #0009;position:relative}
+.phone:before{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);width:25px;height:7px;border-radius:10px;background:#050609}
+.phone:after{content:"";position:absolute;top:15px;left:8px;width:20px;height:20px;border-radius:50%;border:4px solid #697185;box-shadow:32px 0 0 -4px #20283b,32px 0 0 0 #697185,0 32px 0 -4px #20283b,0 32px 0 0 #697185}
+.tag{position:absolute;top:13px;left:13px;background:#25293a;color:#d8d5ff;border-radius:20px;padding:5px 9px;font-size:11px;font-weight:700}
+.info{padding:16px}.info h3{margin:0 0 3px;font-size:17px}.spec{font-size:13px;color:var(--muted)}.price{font-size:21px;font-weight:850;margin:13px 0 2px}.cash{font-size:12px;color:#9da4b8}.buy{width:100%;margin-top:13px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:10;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.dialog{width:min(520px,100%);background:#171a25;border:1px solid var(--line);border-radius:18px;padding:22px;max-height:90vh;overflow:auto}.dialog-head{display:flex;justify-content:space-between;align-items:center}.close{background:none;border:0;color:white;font-size:25px;cursor:pointer}.cart-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:12px 0;gap:12px}.dialog select,.dialog input{width:100%;background:#0d1018;color:white;border:1px solid var(--line);padding:12px;border-radius:10px;margin:6px 0 12px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){nav{display:none}.grid{grid-template-columns:repeat(2,1fr)}.hero{padding:48px 0 35px}.wrap{padding:0 15px}}@media(max-width:420px){.grid{grid-template-columns:1fr}.phone-art{height:160px}}
+</style></head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="#"><span>TORRES CELL</span></a><nav><a href="#inicio">Início</a><a href="#iphones">iPhones</a><a href="#contato">Contato</a></nav><button class="cart" onclick="openCart()">Sacola (<b id="count">0</b>)</button></div></header>
+<section class="hero" id="inicio"><div class="wrap"><div class="eyebrow">TECNOLOGIA • CONFIANÇA • CONECTIVIDADE</div><h1>Seu próximo iPhone está aqui.</h1><p>Confira nossa seleção de iPhones e encontre o modelo ideal para você. Atendimento próximo e loja física em Jaraguá do Sul – SC.</p><div class="hero-actions"><a class="btn" href="#iphones">Ver iPhones</a><a class="btn secondary" href="#contato">Conheça a loja</a></div></div></section>
+<main class="wrap" id="iphones"><div class="section-head"><div><div class="eyebrow">NOSSO CATÁLOGO</div><h2>Escolha seu iPhone</h2><div class="muted">Valores à vista • Consulte disponibilidade de cores</div></div></div>
+<div class="controls"><input id="search" placeholder="Buscar modelo..." oninput="render()"><select id="filter" onchange="render()"><option value="all">Todos os modelos</option><option value="cpo">Apple CPO</option><option value="regular">Demais modelos</option></select></div>
+<div class="grid" id="products"></div></main>
+<footer id="contato"><div class="wrap"><b style="color:white">TORRES CELL</b><p>Avenida Marechal Deodoro da Fonseca, 301 — Centro<br>Jaraguá do Sul – SC • CEP 89251-701</p><p>Modelo demonstrativo. Preços e disponibilidade sujeitos à confirmação pela loja.</p></div></footer>
+<div class="modal" id="modal" onclick="if(event.target===this)closeCart()"><div class="dialog"><div class="dialog-head"><h2>Sua sacola</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartitems"></div><div id="checkout" style="display:none"><h3>Simular pedido</h3><label>Nome</label><input id="custname" placeholder="Seu nome"><label>WhatsApp</label><input id="custphone" placeholder="(00) 00000-0000"><label>Cor desejada</label><select id="color"><option>Consultar cores disponíveis</option><option>Preto</option><option>Branco</option><option>Azul</option><option>Rosa</option><option>Outra cor (consultar)</option></select><p class="muted">Demonstração: nenhum pagamento será cobrado e nenhum pedido será enviado.</p><button class="btn" onclick="finish()">Finalizar simulação</button></div><button class="btn secondary" style="width:100%;margin-top:15px" onclick="closeCart()">Continuar comprando</button></div></div>
+<script>
+const products=[
+["iPhone 13 CPO","128GB",3550,true],["iPhone 14 CPO","128GB",3900,true],["iPhone 15","128GB",4400,false],["iPhone 16e","256GB",4100,false],["iPhone 16","128GB",4999,false],["iPhone 17","256GB",5950,false],["iPhone 17e","256GB",4500,false],["iPhone 17 Pro","256GB",7700,false],["iPhone 17 Pro","512GB",9150,false],["iPhone 17 Pro Max","256GB",7999,false],["iPhone 17 Pro Max","512GB",9650,false]];
+let cart=[];
+const money=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+function render(){let q=document.getElementById('search').value.toLowerCase(),f=document.getElementById('filter').value;document.getElementById('products').innerHTML=products.map((p,i)=>({...p,i})).filter(p=>(p[0]+' '+p[1]).toLowerCase().includes(q)).filter(p=>f==='all'||(f==='cpo'?p[3]:!p[3])).map(p=>`<article class="card"><div class="phone-art">${p[3]?'<span class="tag">APPLE CPO</span>':''}<div class="phone"></div></div><div class="info"><h3>${p[0]}</h3><div class="spec">${p[1]} • ${p[3]?'Apple CPO':'Consulte cores'}</div><div class="price">${money(p[2])}</div><div class="cash">à vista</div><button class="btn buy" onclick="add(${p.i})">Adicionar à sacola</button></div></article>`).join('')}
+function add(i){cart.push(i);document.getElementById('count').textContent=cart.length}
+function openCart(){document.getElementById('modal').classList.add('open');updateCart()}
+function closeCart(){document.getElementById('modal').classList.remove('open')}
+function updateCart(){let el=document.getElementById('cartitems');if(!cart.length){el.innerHTML='<p class="muted">Sua sacola está vazia.</p>';document.getElementById('checkout').style.display='none';return}let total=0;el.innerHTML=cart.map((i,n)=>{total+=products[i][2];return `<div class="cart-row"><span>${products[i][0]} ${products[i][1]}</span><b>${money(products[i][2])}</b><button onclick="cart.splice(${n},1);document.getElementById('count').textContent=cart.length;updateCart()" style="background:none;color:#f88;border:0;cursor:pointer">Remover</button></div>`}).join('')+`<h3>Total à vista: ${money(total)}</h3>`;document.getElementById('checkout').style.display='block'}
+function finish(){let n=document.getElementById('custname').value.trim(),p=document.getElementById('custphone').value.trim();if(!n||!p){alert('Preencha nome e WhatsApp para concluir a simulação.');return}alert('Simulação concluída! Esta versão não envia pedidos reais nem coleta seus dados.');cart=[];document.getElementById('count').textContent='0';updateCart();closeCart()}
+render();
+</script></body></html>
